@@ -18,6 +18,15 @@ from django.contrib import admin
 from django.urls import path
 from api.login.login_view import login_view
 from api.home.home_view import home_view
+# urls.py
+
+from django.contrib.auth import views as auth_views
+from django.urls import path
+
+urlpatterns = [
+    path('login/', auth_views.LoginView.as_view(template_name='login.html'), name='login'),
+    path('', auth_views.LoginView.as_view(), name='home'),  # Vista Home u otra ruta
+]
 
 urlpatterns = [
     #path('admin/', admin.site.urls),
